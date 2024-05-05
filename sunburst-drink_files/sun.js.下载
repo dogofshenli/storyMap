@@ -1,0 +1,984 @@
+
+var dom = document.getElementById('sun');
+var myChart = echarts.init(dom, null, {
+renderer: 'canvas',
+useDirtyRect: false
+});
+var app = {};
+var option;
+var data = [
+{name: '红茶',
+itemStyle: {
+  color: '#da1d23'
+},
+children: [
+  {
+    name: '川红',
+    itemStyle: {
+      color: '#dd4c51'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+        color: '#ef2d36'
+        }
+      }
+    ]
+  },
+  {
+    name: '祁门红茶',
+    itemStyle: {
+      color: '#8B0000'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+        color: '#8B0000'
+        }
+      }
+    ]
+  },
+{
+    name: '滇红',
+    itemStyle: {
+      color: '#9A1616'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+        color: '#9A1616'
+        }
+      }
+    ]
+  },
+    {
+    name: '宜红',
+    itemStyle: {
+      color: '#990000'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+        color: '#990000'
+        }
+      }
+    ]
+  },
+      {
+    name: '湘红',
+    itemStyle: {
+      color: '#A52A2A'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+        color: '#A52A2A'
+        }
+      }
+    ]
+  },
+        {
+    name: '英德红茶',
+    itemStyle: {
+      color: '#800000'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+        color: '#800000'
+        }
+      }
+    ]
+  },
+  {
+    name: '宁红',
+    itemStyle: {
+      color: '#FF4500'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+        color: '#FF4500'
+        }
+      }
+    ]
+  },
+  {
+    name: '宜兴红茶',
+    itemStyle: {
+      color: '#FFA07A'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+        color: '#FFA07A'
+        }
+      }
+    ]
+  },
+  {
+    name: '越红',
+    itemStyle: {
+      color: '#FF6347'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+        color: '#FF6347'
+        }
+      }
+    ]
+  },
+  {
+    name: '日月潭红茶',
+    itemStyle: {
+      color: '#FF7F50'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+        color: '#FF7F50'
+        }
+      }
+    ]
+  },
+  {
+    name: '正山小种',
+    itemStyle: {
+      color: '#c94a44'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+          color: '#a5446f'
+        }
+      }
+    ]
+  }
+]
+},
+{name: '黄茶',
+itemStyle: {
+  color: '#ebb40f'
+},
+children: [
+  {
+    name: '蒙顶黄芽',
+    itemStyle: {
+      color: '#FFFFE0'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+          color: '#FFFFE0'
+        }
+      },
+    ]
+  },
+    {
+    name: '海马宫茶',
+    itemStyle: {
+      color: '#FFFF00'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+          color: '#FFFF00'
+        }
+      },
+    ]
+  },
+    {
+    name: '远安黄茶',
+    itemStyle: {
+      color: '#FFEB00'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+          color: '#FFEB00'
+        }
+      },
+    ]
+  },
+    {
+    name: '君山银针',
+    itemStyle: {
+      color: '#FFDB00'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+          color: '#FFDB00'
+        }
+      },
+    ]
+  },
+    {
+    name: '大叶青',
+    itemStyle: {
+      color: '#EED202'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+          color: '#EED202'
+        }
+      },
+    ]
+  },
+    {
+    name: '霍山黄芽',
+    itemStyle: {
+      color: '#D4AF37'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+          color: '#D4AF37'
+        }
+      },
+    ]
+  },
+  {
+    name: '莫干黄芽',
+    itemStyle: {
+      color: '#FF8C00'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+          color: '#FF8C00'
+        }
+      }
+    ]
+  }
+]
+},
+{name: '绿茶',
+itemStyle: {
+  color: '#187a2f'
+},
+children: [
+  {
+    name: '陇南绿茶',
+    itemStyle: {
+      color: '#FDFFB5'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+          color: '#FDFFB5'
+        }
+      }
+    ]
+  },
+  {
+    name: '竹叶青',
+    itemStyle: {
+      color: '#F8FFB2'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+          color: '#F8FFB2'
+        }
+      }
+    ]
+  },
+    {
+    name: '蒙顶甘露',
+    itemStyle: {
+      color: '#F4FFAE'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+          color: '#F4FFAE'
+        }
+      }
+    ]
+  },
+    {
+    name: '巴山雀舌',
+    itemStyle: {
+      color: '#F0FFAA'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+          color: '#F0FFAA'
+        }
+      }
+    ]
+  },
+    {
+    name: '南糯白毫',
+    itemStyle: {
+      color: '#ECFFA7'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+          color: '#ECFFA7'
+        }
+      }
+    ]
+  },
+    {
+    name: '昆明十里香',
+    itemStyle: {
+      color: '#E7FFA4'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+          color: '#E7FFA4'
+        }
+      }
+    ]
+  },
+    {
+    name: '午子仙豪',
+    itemStyle: {
+      color: '#E0FFA1'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+          color: '#E0FFA1'
+        }
+      }
+    ]
+  },
+    {
+    name: '永川秀芽',
+    itemStyle: {
+      color: '#D9FF9D'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+          color: '#D9FF9D'
+        }
+      }
+    ]
+  },
+    {
+    name: '湄潭翠芽',
+    itemStyle: {
+      color: '#C7FF9A'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+          color: '#C7FF9A'
+        }
+      }
+    ]
+  },
+    {
+    name: '都匀毛尖',
+    itemStyle: {
+      color: '#B5FF97'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+          color: '#B5FF97'
+        }
+      }
+    ]
+  },
+    {
+    name: '桂林毛尖',
+    itemStyle: {
+      color: '#A3FB94'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+          color: '#A3FB94'
+        }
+      }
+    ]
+  },
+    {
+    name: '凌云白毫',
+    itemStyle: {
+      color: '#91F191'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+          color: '#91F191'
+        }
+      }
+    ]
+  },
+    {
+    name: '信阳毛尖',
+    itemStyle: {
+      color: '#80E58F'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+          color: '#80E58F'
+        }
+      }
+    ]
+  },
+    {
+    name: '恩施玉露',
+    itemStyle: {
+      color: '#70D88C'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+          color: '#70D88C'
+        }
+      }
+    ]
+  },
+    {
+    name: '安化松针',
+    itemStyle: {
+      color: '#65CC7A'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+          color: '#65CC7A'
+        }
+      }
+    ]
+  },
+    {
+    name: '古劳茶',
+    itemStyle: {
+      color: '#56C178'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+          color: '#56C178'
+        }
+      }
+    ]
+  },
+    {
+    name: '日照绿茶',
+    itemStyle: {
+      color: '#48B46B'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+          color: '#48B46B'
+        }
+      }
+    ]
+  },
+    {
+    name: '庐山云雾',
+    itemStyle: {
+      color: '#3AA76A'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+          color: '#3AA76A'
+        }
+      }
+    ]
+  },
+    {
+    name: '天山绿',
+    itemStyle: {
+      color: ' #359968'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+          color: ' #359968'
+        }
+      }
+    ]
+  },
+    {
+    name: '石亭绿',
+    itemStyle: {
+      color: '#2F9C67'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+          color: '#2F9C67'
+        }
+      }
+    ]
+  },
+    {
+    name: '黄山毛尖',
+    itemStyle: {
+      color: '#248F63'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+          color: '#248F63'
+        }
+      }
+    ]
+  },
+    {
+    name: '太平猴魁',
+    itemStyle: {
+      color: '#1E9167'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+          color: '#1E9167'
+        }
+      }
+    ]
+  },
+    {
+    name: '六安瓜片',
+    itemStyle: {
+      color: '#1C8A6B'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+          color: '#1C8A6B'
+        }
+      }
+    ]
+  },
+    {
+    name: '碧螺春',
+    itemStyle: {
+      color: '#137752'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+          color: '#137752'
+        }
+      }
+    ]
+  },
+    {
+    name: '安吉白茶',
+    itemStyle: {
+      color: '#0E6A5A'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+          color: '#0E6A5A'
+        }
+      }
+    ]
+  },
+    {
+    name: '西湖龙井',
+    itemStyle: {
+      color: '#0B4B38'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+          color: '#0B4B38'
+        }
+      }
+    ]
+  }
+]
+},
+{name: '白茶',
+itemStyle: {
+  color: '#0aa3b5'
+},
+children: [
+  {
+    name: '白毫银针',
+    itemStyle: {
+      color: '#9db2b7'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+          color: '#8b8c90'
+        }
+      }
+    ]
+  },
+    {
+    name: '政和白茶',
+    itemStyle: {
+      color: '#9db2b7'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+          color: '#8b8c90'
+        }
+      }
+    ]
+  },
+  {
+    name: '福鼎白茶',
+    itemStyle: {
+      color: '#76c0cb'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+          color: '#80a89d'
+        }
+      }
+    ]
+  }
+]
+},
+{name: '乌龙茶',
+itemStyle: {
+  color: '#c94930'
+},
+children: [
+  {
+    name: '铁观音',
+    itemStyle: {
+      color: '#be8663'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+          color: '#b9a449'
+        }
+      }
+    ]
+  },
+    {
+    name: '凤凰单丛',
+    itemStyle: {
+      color: '#be8663'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+          color: '#b9a449'
+        }
+      }
+    ]
+  },
+    {
+    name: '武夷岩茶',
+    itemStyle: {
+      color: '#be8663'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+          color: '#b9a449'
+        }
+      }
+    ]
+  },
+    {
+    name: '铁观音',
+    itemStyle: {
+      color: '#be8663'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+          color: '#b9a449'
+        }
+      }
+    ]
+  },
+  {
+    name: '大红袍',
+    itemStyle: {
+      color: '#ddaf61'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+          color: '#b7906f'
+        }
+      }
+    ]
+  }
+]
+},
+{name: '黑茶',
+itemStyle: {
+  color: '#ad213e'
+},
+children: [
+  {
+    name: '四川边茶',
+    itemStyle: {
+      color: '#3E1C0C'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+          color: '#3E1C0C'
+        }
+      }
+    ]
+  },
+    {
+    name: '普洱茶',
+    itemStyle: {
+      color: '#5B301B'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+          color: '#5B301B'
+        }
+      }
+    ]
+  },
+    {
+    name: '六堡茶',
+    itemStyle: {
+      color: '#8B4513'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+          color: '#8B4513'
+        }
+      }
+    ]
+  },
+    {
+    name: '安化黑茶',
+    itemStyle: {
+      color: '#A5694F'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+          color: '#A5694F'
+        }
+      }
+    ]
+  },
+    {
+    name: '湖北老青茶',
+    itemStyle: {
+      color: '#CD853F'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+          color: '#CD853F'
+        }
+      }
+    ]
+  },
+    {
+    name: '陕西茯茶',
+    itemStyle: {
+      color: '#D9B08C'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+          color: '#D9B08C'
+        }
+      }
+    ]
+  },
+  {
+    name: '古黔黑茶',
+    itemStyle: {
+      color: '#EAE0C8'
+    },
+    children: [
+      {
+        name: '',
+        value: 1,
+        itemStyle: {
+          color: '#EAE0C8'
+        }
+      }
+    ]
+  }
+]
+}
+];
+option = {
+series: {
+type: 'sunburst',
+data: data,
+radius: [0, '95%'],
+sort: undefined,
+emphasis: {
+  focus: 'ancestor'
+},
+levels: [
+  {},
+  {
+    r0: '15%',
+    r: '35%',
+    itemStyle: {
+      borderWidth: 2
+    },
+    label: {
+      rotate: 'tangential'
+    }
+  },
+  {
+    r0: '35%',
+    r: '70%',
+    label: {
+      align: 'right'
+    }
+  },
+  {
+    r0: '70%',
+    r: '72%',
+    label: {
+      position: 'outside',
+      padding: 3,
+      silent: false
+    },
+    itemStyle: {
+      borderWidth: 3
+    }
+  }
+]
+}
+};
+if (option && typeof option === 'object') {
+  myChart.setOption(option);
+}
+window.addEventListener('resize', myChart.resize);
